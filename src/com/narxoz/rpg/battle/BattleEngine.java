@@ -48,6 +48,7 @@ public final class BattleEngine {
         result.setWinner(a.isEmpty() ? "Team B (Enemies)" : "Team A (Heroes)");
         return result;
     }
+
     private void executeTurn(List<Combatant> attackers, List<Combatant> defenders, EncounterResult result) {
         for (Combatant attacker : attackers) {
             if (defenders.isEmpty()) break;
@@ -65,4 +66,5 @@ public final class BattleEngine {
                 defenders.remove(targetIdx);
             }
         }
+    }
 }
