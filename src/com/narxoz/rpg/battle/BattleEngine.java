@@ -32,6 +32,7 @@ public final class BattleEngine {
         int rounds = 0;
 
         List<Combatant> a = new ArrayList<>(teamA);
+
         List<Combatant> b = new ArrayList<>(teamB);
 
         while (!a.isEmpty() && !b.isEmpty()) {
