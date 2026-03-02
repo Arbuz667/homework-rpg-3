@@ -35,4 +35,21 @@ public final class BattleEngine {
         result.addLog("TODO: implement battle simulation");
         return result;
     }
+    private void executeTurn(List<Combatant> attackers, List<Combatant> defenders, EncounterResult result) {
+        for (Combatant attacker : attackers) {
+            if (defenders.isEmpty()) break;
+
+            int targetIdx = random.nextInt(defenders.size());
+            Combatant target = defenders.get(targetIdx);
+
+            int damage = attacker.getAttackPower();
+            target.takeDamage(damage);
+
+            result.addLog(attacker.getName() + " attacks " + target.getName() + " for " + damage + " HP.");
+
+            if (!target.isAlive()) {
+                result.addLog(target.getName() + " has fallen!");
+                defenders.remove(targetIdx);
+            }
+        }
 }
