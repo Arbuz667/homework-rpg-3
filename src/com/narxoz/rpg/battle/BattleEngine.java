@@ -29,9 +29,23 @@ public final class BattleEngine {
 
     public EncounterResult runEncounter(List<Combatant> teamA, List<Combatant> teamB) {
         EncounterResult result = new EncounterResult();
-        result.setWinner("TBD");
-        result.setRounds(0);
-        result.addLog("TODO: implement battle simulation");
+        int rounds = 0;
+
+        List<Combatant> a = new ArrayList<>(teamA);
+        List<Combatant> b = new ArrayList<>(teamB);
+
+        while (!a.isEmpty() && !b.isEmpty()) {
+            rounds++;
+            result.addLog("--- Round " + rounds + " ---");
+
+            executeTurn(a, b, result);
+            if (b.isEmpty()) break;
+
+            executeTurn(b, a, result);
+        }
+
+        result.setRounds(rounds);
+        result.setWinner(a.isEmpty() ? "Team B (Enemies)" : "Team A (Heroes)");
         return result;
     }
     private void executeTurn(List<Combatant> attackers, List<Combatant> defenders, EncounterResult result) {
