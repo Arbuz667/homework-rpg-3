@@ -24,7 +24,7 @@ public final class BattleEngine {
     }
 
     public void reset() {
-        // TODO: reset any battle state if you add it
+        this.random = new Random(1L);
     }
 
     public EncounterResult runEncounter(List<Combatant> teamA, List<Combatant> teamB) {
