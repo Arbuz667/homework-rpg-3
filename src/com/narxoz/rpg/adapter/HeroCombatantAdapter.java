@@ -15,11 +15,7 @@ public class HeroCombatantAdapter implements Combatant {
         return hero.getName();
     }
 
-    @Override
-    public int getAttackPower() {
-        // TODO: translate hero power to combat attack
-        return hero.getPower();
-    }
+    @Override public int getAttackPower() { return hero.getPower(); }
 
     @Override
     public void takeDamage(int amount) {
