@@ -2,6 +2,7 @@ package com.narxoz.rpg.battle;
 
 import java.util.List;
 import java.util.Random;
+import java.util.ArrayList;
 
 public final class BattleEngine {
     private static BattleEngine instance;
